@@ -30,7 +30,7 @@ contract Messenger{
 
   function sendMessage(address from, address to, string memory URI) public virtual {
     require(from == msg.sender, "Messenger: Message not being sent by transaction sender");
-    require(_exists[to], "Messenger: Tyring to send message to nonexistent owner");
+    require(_exists[to], "Messenger: Trying to send message to nonexistent user");
     Message memory message = Message(from, to, URI);
 
     _messageIndex++;

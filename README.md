@@ -12,7 +12,8 @@
    
   This is just standard assymetric message encryption, only decentralized, hence better!
   <br><br>
-  This works more like a virtual postal service than a messenger service.
+  RSA encryption is only worth a damn if the keys are at least 2048 bits long. While one can store those keys on the blockchain, that's 256 bytes (plus bytes needed to store the public exponent) worth of blockchain memory being altered, which results in high gas prices.<br><br>
+  Here, we have an alternative: upload the public key to IPFS and store the CID on the blockchain instead, which should result in significanlty a lower gas price (theoretically).
 
 ## TODO list
 * Add function so that third parties can send and recieve messages on user's behalf.

@@ -2,7 +2,7 @@
 ### Messenger dapp on Ethereum with assymetric encryption
 
 ## Introduction
-  The idea is to create an online messenger service without relying on centralized servers for successful transmission and privacy of messages.<br><br>
+  The idea is to create an online messenger service without relying on centralized servers for successful transmission and privacy of messages. Messages can be transmitted between different frontend platforms as long as they tap into the same messenger contract.<br><br>
   This dapp works as such:
 1. When user <b>A</b> registers with the dapp, they generate a public and private key pair.
 2. The public key is stored on the ethereum blockchain. The private key is kept by <b>A</b> for safe keeping.

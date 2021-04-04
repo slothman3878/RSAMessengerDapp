@@ -21,7 +21,8 @@
 
 ## TODO list
 #### Ordered by Importance
-* Create frontend using Django, web3.py, and django-web3-auth. Pin messages and public-key using Pinata.
+* Create frontend using Django, web3.py, and django-web3-auth.
+* Pin messages and public-key using Pinata.
 * Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.

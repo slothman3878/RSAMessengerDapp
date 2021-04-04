@@ -4,3 +4,7 @@ hardhat.config.js
 
 artifacts
 cache
+
+frontend/env
+frontend
+frontend/RSAMessengerDapp/RSAMessengerDapp/__pycache__

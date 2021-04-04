@@ -17,5 +17,9 @@
   Here, we have an alternative: upload the public key to IPFS and store the CID on the blockchain instead, which should result in significanlty a lower gas price (theoretically).
 
 ## TODO list
+#### Ordered by Importance
+* Add test scripts.
+* Create frontend using Django, web3.py, and django-web3-auth
+* Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.
-* Implement a version where the public keys are stored on the blockchain and compare gas prices.
+* (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.

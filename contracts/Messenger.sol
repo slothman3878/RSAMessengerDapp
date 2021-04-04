@@ -24,10 +24,14 @@ contract Messenger{
   mapping(address => mapping(uint256 => uint256)) private _recieved;  //recieved messages
   mapping(address => mapping(uint256 => uint256)) private _sent;
 
+  event SetPublicKey(address user, string key);
+  event MessageSent(address from, address to);
+
   function setPublicKey(address user, string memory keyURI) public virtual {
     require(user == msg.sender, "Messenger: User not the transaction sender");
     if(!_exists[user]) _exists[user] = true;
     _keys[user]=keyURI;
+    emit SetPublicKey(user, keyURI);
   }
 
   function sendMessage(address from, address to, string memory URI) public virtual {
@@ -43,6 +47,8 @@ contract Messenger{
 
     _sent[from][_sentBalance[from]]=_messageIndex;
     _sentBalance[from]++;
+
+    emit MessageSent(from, to);
   }
 
   function getPublicKey(address to) public virtual view returns (string memory) {

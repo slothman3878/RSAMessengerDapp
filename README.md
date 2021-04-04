@@ -2,7 +2,7 @@
 ### Messenger dapp on Ethereum with assymetric encryption
 
 ## Introduction
-  The idea is to create a messenger service without relying on centralized servers for successful transmission and privacy of messages.<br><br>
+  The idea is to create an online messenger service without relying on centralized servers for successful transmission and privacy of messages. Messages can be transmitted between different frontend platforms as long as they tap into the same messenger contract.<br><br>
   This dapp works as such:
 1. When user <b>A</b> registers with the dapp, they generate a public and private key pair.
 2. The public key is stored on the ethereum blockchain. The private key is kept by <b>A</b> for safe keeping.
@@ -19,7 +19,7 @@
 ## TODO list
 #### Ordered by Importance
 * Add test scripts.
-* Create frontend using Django, web3.py, and django-web3-auth.
+* Create frontend using Django, web3.py, and django-web3-auth. Pin messages and public-key using Pinata.
 * Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.

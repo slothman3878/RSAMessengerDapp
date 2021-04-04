@@ -5,6 +5,8 @@ contract Messenger{
   mapping(address => string) _keys; // Contains URI to keys for each address
   mapping(address => bool) _exists;
 
+  //Having to store the from and to addresses for each message may be needlessly costly.
+  //Information about who sent and recieved the message can be appended to the message itself.
   struct Message{
     //Declare if Message is type public or private? Private messsages require decryption, whereas public ones don't.
     address from;

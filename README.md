@@ -17,7 +17,7 @@
   Here, we have an alternative: upload the public key to IPFS and store the CID on the blockchain instead, which should result in significanlty a lower gas price (theoretically).
 
 ## Important!!!
-  The frontend is merely for demonstration (and a personal exercise). It is by no means meant to used seriously.
+  The frontend is merely for demonstration. It should not be used seriously.
 
 ## TODO list
 #### Ordered by Importance

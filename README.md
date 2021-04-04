@@ -1,4 +1,4 @@
-# RSA messenger Dapp
+# RSA Messenger Dapp
 ### Messenger dapp on Ethereum with assymetric encryption
 
 ## Introduction
@@ -12,7 +12,7 @@
    
   This is just standard assymetric encryption, only decentralized, hence better!
   <br><br>
-  RSA encryption is only worth a damn if the keys are at least 2048 bits long. While one can store those keys on the blockchain, that's 256 bytes (plus bytes needed to store the public exponent) worth of blockchain memory being altered, which results in high gas prices.
+  RSA encryption is only worth a damn if the keys are at least 2048 bits long. While one can store those keys on the blockchain, that's 256 bytes (plus bytes needed to store the public exponent) worth of blockchain memory being altered, resulting in a high gas price.
   <br><br>
   Here, we have an alternative: upload the public key to IPFS and store the CID on the blockchain instead, which should result in significanlty a lower gas price (theoretically).
 

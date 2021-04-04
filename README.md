@@ -19,7 +19,7 @@
 ## TODO list
 #### Ordered by Importance
 * Add test scripts.
-* Create frontend using Django, web3.py, and django-web3-auth
+* Create frontend using Django, web3.py, and django-web3-auth.
 * Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.

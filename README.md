@@ -26,3 +26,4 @@
 * Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.
+* Entrusting private servers for safe keeping of private keys is far from ideal. Need to think of alternative methods for private key storage.

@@ -21,7 +21,7 @@
 
 ## TODO list
 #### Ordered by Importance
-* Create frontend using Django, web3.py, and eth-account.
+* Create frontend using Django, web3.py, and eth-account (currently leaning towards creating an ethereum address with a signup).
 * Pin messages and public-key using Pinata.
 * Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.

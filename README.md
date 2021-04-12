@@ -16,6 +16,11 @@
   <br><br>
   Here, we have an alternative: upload the public key to IPFS and store the CID on the blockchain instead, which should result in significanlty a lower gas price (theoretically).
 
+## Description for 'method-3' branch
+Using <b>web3-auth</b> and <b>web3.py</b>
+* Create an account with an ethereum address from some third party wallet
+* login via `window.ethereum` or perhaps <b>Wallet Connect</b>
+
 ## Important!!!
   The frontend is merely for demonstration. It should not be used seriously.
 

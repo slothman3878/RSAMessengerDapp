@@ -18,8 +18,16 @@
 
 ## Description for 'method-3' branch
 Using <b>web3-auth</b> and <b>web3.py</b>
-* Create an account with an ethereum address from some third party wallet
-* login via `window.ethereum` or perhaps <b>Wallet Connect</b> with the <b>private key</b>
+* Create an account with an ethereum address from some third party wallet (will use just Metamask for now, since its convenient).
+* login via `window.ethereum` or perhaps <b>Wallet Connect</b> with the <b>private key</b>.
+* Use a <b>Alchemy.api</b> node to interact with ethereum
+
+The whole purpose of this project is to
+<ol type='A'>
+  <li>Learn and use basic Django.</li>
+  <li>Use web3.py with it.</li>
+</ol>
+Instead of defaulting to the usual <b>React.js</b> with some javascript-based ethereum provider.
 
 ## Important!!!
   The frontend is merely for demonstration. It should not be used seriously.

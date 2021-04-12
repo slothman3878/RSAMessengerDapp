@@ -6,8 +6,5 @@ artifacts
 cache
 
 frontend/env
-frontend/RSAMessengerDapp/__pycache__
+frontend
 frontend/RSAMessengerDapp/RSAMessengerDapp/__pycache__
-frontend/RSAMessengerDapp/Messenger/__pycache__
-frontend/RSAMessengerDapp/Messenger/migrations
-frontend/RSAMessengerDapp/db.sqlite3

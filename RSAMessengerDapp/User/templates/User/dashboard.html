@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+<div>
+    <ul>
+        <li>username: {{username}}</li>
+        <li>address: {{address}}</li>
+        <li>balance: {{balance}}</li>
+    </ul>
+    <p>Deposit <b>ether</b> into this account to be able create an Account with the blockchain and compose messages</p>
+    <a href={% url 'logout' %}><button>Logout</button></a>
+    <a href={% url 'keygeneration' %}><button>Generate Key</button></a>
+    <a><button>Register with Blockchain</button></a>
+<div>

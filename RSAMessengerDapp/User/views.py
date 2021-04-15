@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from web3 import Web3
 from Crypto.PublicKey import RSA
+from ipfshttpclient import connect
 
 from .forms import SignupForm, KeyGenerationForm
 from .models import Key
@@ -31,6 +32,7 @@ def dashboard_view(request):
         context['username'] = request.user.username
         context['address'] = request.user.address
         context['balance'] = web3.fromWei(web3.eth.get_balance(request.user.address), 'ether')
+        context['keys'] = Key.objects.filter(user=request.user)
         return render(request, 'User/dashboard.html', context)
 
 def signup_view(request):
@@ -73,7 +75,10 @@ def logout_request(request):
     logout(request)
     return redirect('home')
 
-def keygeneration_request(request):
+def keyregistration_request(request):
+
+
+def keygeneration_view(request):
     context = {}
     if request.POST:
         form = KeyGenerationForm(request.POST)
@@ -91,5 +96,3 @@ def keygeneration_request(request):
         form = KeyGenerationForm()
         context['keygeneration_form'] = form
     return render(request, 'User/keygeneration.html', context)
-            
-    

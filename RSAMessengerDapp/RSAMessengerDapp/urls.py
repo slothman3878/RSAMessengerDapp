@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from User.views import home_view, signup_view, dashboard_view, login_view, logout_request, keygeneration_request
+from User.views import home_view, signup_view, dashboard_view, login_view, logout_request, keygeneration_view
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -25,5 +25,5 @@ urlpatterns = [
     path('dashboard/', dashboard_view, name='dashboard'),
     path('login/', login_view, name='login'),
     path('logout', logout_request, name='logout'),
-    path('keygeneration', keygeneration_request, name='keygeneration'),
+    path('keygeneration', keygeneration_view, name='keygeneration'),
 ]

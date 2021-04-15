@@ -7,6 +7,17 @@
     </ul>
     <p>Deposit <b>ether</b> into this account to be able create an Account with the blockchain and compose messages</p>
     <a href={% url 'logout' %}><button>Logout</button></a>
-    <a href={% url 'keygeneration' %}><button>Generate Key</button></a>
-    <a><button>Register with Blockchain</button></a>
+    {% if keys %}
+        {% for key in keys %}
+            <p>You have a RSA key and it is
+                {% if key.is_registered %}
+                    registered
+                {% else %}
+                    not registered
+                {% endif %}</p>
+        {% endfor %}
+        <a><button>Register with Blockchain</button></a>
+    {% else %}
+        <a href={% url 'keygeneration' %}><button>Generate Key</button></a>
+    {% endif %}
 <div>

@@ -58,7 +58,9 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
+# While currently the Key model does use a ForeignKey field, for now we are assuming there is one unique key for each user.
 class Key(models.Model):
     public_key = models.TextField()
     private_key = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_registered = models.BooleanField(default=False)

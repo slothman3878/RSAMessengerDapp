@@ -21,9 +21,10 @@
 
 ## TODO list
 #### Ordered by Importance
-* Create frontend using Django, web3.py, and eth-account (currently leaning towards creating an ethereum address with a signup).
 * Pin messages and public-key using Pinata.
 * Deploy to test net.
 * Add function so that third parties can send and recieve messages on user's behalf.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.
 * Entrusting private servers for safe keeping of private keys is far from ideal. Need to think of alternative methods for private key storage.
+* Alternative frontend using something like django-web3-auth so that users could use their own wallets instead of generating wallets for each account.
+* Some way for users to view "Sent" Messages. Perhaps encrypting the "Sent" messages with their own public_keys and upload it to IPFS as well?

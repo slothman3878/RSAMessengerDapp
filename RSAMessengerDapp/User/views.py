@@ -11,7 +11,8 @@ from .models import Key
 
 #The views and templates in this app are placeholders. Will use the ones in the Pages app instead later.
 
-provider = Web3.WebsocketProvider('wss://eth-rinkeby.ws.alchemyapi.io/v2/E5avp7dWJA12D0sptmOn8M3V8MNHCR_s')
+#Currently deployed to local hardhat network only
+provider = Web3.HTTPProvider('http://127.0.0.1:8545/')
 web3 = Web3(provider)
 
 # Create your views here.
@@ -29,7 +30,7 @@ def dashboard_view(request):
     else:
         context['username'] = request.user.username
         context['address'] = request.user.address
-        context['balance'] = web3.eth.get_balance(request.user.address)
+        context['balance'] = web3.fromWei(web3.eth.get_balance(request.user.address), 'ether')
         return render(request, 'User/dashboard.html', context)
 
 def signup_view(request):

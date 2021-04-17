@@ -9,6 +9,8 @@ import ipfshttpclient
 from hashlib import sha256
 from web3 import Web3
 
+from Scripts.Web3Wrapper import setPublicKey
+
 from .models import Key
 from .forms import KeyGenerationForm
 
@@ -52,19 +54,7 @@ def keygeneration_view(request):
             key = Key(user=request.user, public_key=public_key, private_key=private_key, is_main_key=True)
             key.save()
 
-            # Really need a wrapper to deal with all of this...
-            nonce = web3.eth.getTransactionCount(request.user.address)
-
-            tx = contract_instance.functions.setPublicKey(request.user.address, res['Hash']).buildTransaction({
-                'chainId': 31337,
-                'gas': 3000000,
-                'gasPrice': web3.toWei('40', 'gwei'),
-                'nonce': nonce,
-            })
-            signed_tx = web3.eth.account.sign_transaction(tx,request.user.eth_key)
-            tx_hash = web3.eth.send_raw_transaction(signed_tx.rawTransaction)
-            tx_receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
-            print(tx_receipt)
+            setPublicKey(request.user.address, res['Hash'], request.user.eth_key)
 
             return redirect('home')
         else:

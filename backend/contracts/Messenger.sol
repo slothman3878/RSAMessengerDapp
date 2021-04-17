@@ -14,6 +14,8 @@ contract Messenger{
     string message;
   }
 
+  string private _name = "EthMessenger";
+
   uint256 private _messageIndex;
 
   mapping(uint256 => Message) private _messages;
@@ -26,6 +28,10 @@ contract Messenger{
 
   event SetPublicKey(address user, string key);
   event MessageSent(address from, address to);
+
+  function name() public virtual view returns(string memory){
+    return _name;
+  }
 
   function setPublicKey(address user, string memory keyURI) public virtual {
     require(user == msg.sender, "Messenger: User not the transaction sender");

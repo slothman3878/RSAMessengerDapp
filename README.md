@@ -17,4 +17,4 @@
   Here, we have an alternative: upload the public key to IPFS and store the CID on the blockchain instead, which should result in significanlty a lower gas price (theoretically).
 
 ## Important!!!
-  The frontend is merely for demonstration. It should not be used seriously.
+  The frontend is merely for demonstration. It should not be used seriously. It is in fact, a terrible frontend since it stores not only the private RSA keys for its users, it also stores&ndash;although immediately deletes after creation&ndash;private messages, encrypted or no. Then there's the fact that it handles and stores the addresses and private-keys of its users in the database.

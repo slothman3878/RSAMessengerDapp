@@ -4,11 +4,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 
 from web3 import Web3
-from Crypto.PublicKey import RSA
-from ipfshttpclient import connect
 
-from .forms import SignupForm, KeyGenerationForm
-from .models import Key
+from .forms import SignupForm
+from Key.models import Key
 
 #The views and templates in this app are placeholders. Will use the ones in the Pages app instead later.
 
@@ -32,7 +30,7 @@ def dashboard_view(request):
         context['username'] = request.user.username
         context['address'] = request.user.address
         context['balance'] = web3.fromWei(web3.eth.get_balance(request.user.address), 'ether')
-        context['keys'] = Key.objects.filter(user=request.user)
+        context['keys'] = Key.objects.filter(user=request.user,is_main_key=True)
         return render(request, 'User/dashboard.html', context)
 
 def signup_view(request):
@@ -74,25 +72,3 @@ def login_view(request):
 def logout_request(request):
     logout(request)
     return redirect('home')
-
-def keyregistration_request(request):
-
-
-def keygeneration_view(request):
-    context = {}
-    if request.POST:
-        form = KeyGenerationForm(request.POST)
-        if form.is_valid():
-            passphrase = form.cleaned_data.get('passphrase')
-            rsa_key = RSA.generate(2048)
-            private_key = rsa_key.export_key(passphrase=passphrase, pkcs=8, protection='scryptAndAES128-CBC')
-            public_key = rsa_key.public_key().export_key('PEM')
-            key = Key(user=request.user, public_key=public_key, private_key=private_key)
-            key.save()
-            return redirect('home')
-        else:
-            context['keygeneration_form'] = form
-    else:
-        form = KeyGenerationForm()
-        context['keygeneration_form'] = form
-    return render(request, 'User/keygeneration.html', context)

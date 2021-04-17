@@ -1,6 +1,6 @@
 //Script for transferring ether from the accounts generated with intialization of the hardhat network
 let recievers = [
-  '0xc7aa2134001d5fE6c0b18D5DBFD68c6cc75672B0',
+  '0xdc0ee3E32516f82e94633FD908c33a77373A2050',
 ]
 
 async function main() {

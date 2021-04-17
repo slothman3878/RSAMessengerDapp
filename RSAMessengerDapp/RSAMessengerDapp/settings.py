@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # My Apps
     'User',
+    'Key',
 ]
 
 MIDDLEWARE = [

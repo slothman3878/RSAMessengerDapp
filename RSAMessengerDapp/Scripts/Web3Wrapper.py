@@ -1,6 +1,5 @@
 import json
 from web3 import Web3
-from web3.contract import ConciseContract
 
 #Provider Instance
 #Currently deployed to local hardhat network only

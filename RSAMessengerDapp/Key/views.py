@@ -2,12 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 import os
-import json
 from datetime import datetime
 from Crypto.PublicKey import RSA
 import ipfshttpclient
 from hashlib import sha256
-from web3 import Web3
 
 from Scripts.Web3Wrapper import setPublicKey
 

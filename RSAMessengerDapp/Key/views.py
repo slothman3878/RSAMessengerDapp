@@ -12,14 +12,6 @@ from Scripts.Web3Wrapper import setPublicKey
 from .models import Key
 from .forms import KeyGenerationForm
 
-#Currently deployed to local hardhat network only
-provider = Web3.HTTPProvider('http://127.0.0.1:8545/')
-web3 = Web3(provider)
-contract_address = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'
-contract_artifact = json.load(open('Messenger.json',))
-abi = contract_artifact['abi']
-contract_instance = web3.eth.contract(address=contract_address,abi=abi)
-
 # Create your views here.
 def keygeneration_view(request):
     context = {}
@@ -31,9 +23,10 @@ def keygeneration_view(request):
             private_key = rsa_key.export_key(passphrase=passphrase, pkcs=8, protection='scryptAndAES128-CBC')
             public_key = rsa_key.public_key().export_key('PEM')
 
+            # probably best if I created a wrapper for IPFS to. Add add and cat functions
             now = datetime.now().strftime('%s')
             file_title = sha256(('public key' + request.user.username + datetime.now().strftime('%s')).encode()).hexdigest()
-            file_loc = 'Key/temp/'+file_title+'.pem'
+            file_loc = 'temp/'+file_title+'.pem'
             file_out = open(file_loc,'wb')
             file_out.write(public_key)
             file_out.close()

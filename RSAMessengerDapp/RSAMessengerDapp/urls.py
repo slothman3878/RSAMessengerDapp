@@ -18,6 +18,7 @@ from django.urls import path
 
 from User.views import home_view, signup_view, dashboard_view, login_view, logout_request
 from Key.views import keygeneration_view, keyregistration_request
+from Compose.views import compose_view
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('logout', logout_request, name='logout'),
     path('keygeneration', keygeneration_view, name='keygeneration'),
     path('keyregistration', keyregistration_request, name='keyregistration'),
+    path('compose', compose_view, name='compose')
 ]

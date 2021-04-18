@@ -12,10 +12,9 @@ Here are some implementation variations that are worth considering.
 
 ## TODO list
 #### Ordered by Importance
-* Write a wrapper for all web3 methods being used.
+* Write validator methods for all forms
 * Pin messages and public-key using Pinata.
 * Deploy to test net.
-* Add function so that third parties can send and recieve messages on user's behalf.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.
 * Entrusting private servers for safe keeping of private keys is far from ideal. Need to think of alternative methods for private key storage.
 * Alternative frontend using something like django-web3-auth so that users could use their own wallets instead of generating wallets for each account.

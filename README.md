@@ -10,7 +10,7 @@
 4. The encrypted messages is stored on a decentralized storage system (in this project, IPFS is used). The CID of the message is stored on the blockchain.
 5. <b>A</b> requests the message CID from the blockchain, gets the encrypted message, and decrypts it with their private key.
    
-  This is just standard assymetric encryption, only decentralized, hence better!
+  This is just standard assymetrically encrypted messaging, only decentralized, hence better!
   <br><br>
   RSA encryption is only worth a damn if the keys are at least 2048 bits long. While one can store those keys on the blockchain, that's 256 bytes (plus bytes needed to store the public exponent) worth of blockchain memory being altered, resulting in a high gas price.
   <br><br>

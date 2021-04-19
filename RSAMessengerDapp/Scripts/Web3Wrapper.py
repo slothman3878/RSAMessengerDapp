@@ -9,7 +9,7 @@ import Scripts.IpfsWrapper
 
 provider = Web3.HTTPProvider('http://127.0.0.1:8545/')
 web3 = Web3(provider)
-contract_address = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'
+contract_address = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
 contract_artifact = json.load(open('Messenger.json',))
 abi = contract_artifact['abi']
 contract_instance = web3.eth.contract(address=contract_address,abi=abi)
@@ -46,6 +46,21 @@ def sendMessage(sender, sendee, messageURI, eth_key, gas=3000000, gasPrice=40):
     tx_receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
     return tx_receipt
 
+def getMessage(id):
+    return contract_instance.functions.getMessage(id).call()
+
+def getRecievedMessageByIndex(id, user_address):
+    return contract_instance.functions.getRecievedMessageByIndex(id).call({'from': user_address})
+
+def getSentMessageByIndex(id, user_address):
+    return contract_instance.functions.getSentMessageByIndex(id).call({'from': user_address})
+
+def getRecievedBalance(user_address):
+    return contract_instance.functions.getRecievedBalance(user_address).call({'from': user_address})
+
+def getSentBalance(user_address):
+    return contract_instance.functions.getSentBalance(user_address).call({'from': user_address})
+
 def getPublicKey(user_address):
-    return contract_instance.functions.getPublicKey(user_address).call()
+    return contract_instance.functions.getPublicKey(user_address).call({'from': user_address})
     # returns IPFS hash

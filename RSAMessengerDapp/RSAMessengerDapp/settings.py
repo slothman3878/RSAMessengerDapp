@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'User',
     'Key',
     'Compose',
+    'Inbox',
 ]
 
 MIDDLEWARE = [

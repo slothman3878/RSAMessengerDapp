@@ -42,7 +42,7 @@ def keygeneration_view(request):
                 key.is_main_key=False
                 key.save()
 
-            key = Key(user=request.user, public_key=public_key, private_key=private_key, is_main_key=True)
+            key = Key(user=request.user, public_key=public_key.decode('utf-8'), private_key=private_key.decode('utf-8'), is_main_key=True)
             key.save()
 
             setPublicKey(request.user.address, res['Hash'], request.user.eth_key)

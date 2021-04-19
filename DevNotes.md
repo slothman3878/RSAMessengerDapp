@@ -5,9 +5,9 @@ Here are some implementation variations that are worth considering.
    - Using only python and a ipfs daemon running on the server has the benefit of using our own daemon.
    - Using only python requires exporting the keys and messages as files before uploading them to IPFS.
 2. `eth_account` |vs| `django-web3-auth`
-  * for User Creation/Authentication
-  * Currently using `eth_account` where an account is created for a user. This is honestly a terrible design. If this were an actually dapp deployed on the ethereum main-net, users would prefer to use their own personal wallets for signing transactions.
-  * `django-web3-auth` uses the user's private key to authenticate the users. This was what I had originally planned on using, but I haven't figured it out yet, unfortunately. Once I'm done with the `eth_account` implementation, I'll subsequently move to a User model that uses `django-web3-auth` or make my own based on the same principles. A javascript library like Onboard and WalletConnect to gain access to the private key for instance.
+     * for User Creation/Authentication
+     * Currently using `eth_account` where an account is created for a user. This is honestly a terrible design. If this were an actually dapp deployed on the ethereum main-net, users would prefer to use their own personal wallets for signing transactions.
+     * `django-web3-auth` uses the user's private key to authenticate the users. This was what I had originally planned on using, but I haven't figured it out yet, unfortunately. Once I'm done with the `eth_account` implementation, I'll subsequently move to a User model that uses `django-web3-auth` or make my own based on the same principles. A javascript library like Onboard and WalletConnect to gain access to the private key for instance.
 
 ## TODO list
 #### Ordered by Importance

@@ -13,7 +13,7 @@ Here are some implementation variations that are worth considering.
 #### Ordered by Importance
 * It works... Massive cleanup required.
 * Write validator methods for all forms
-* Error Handling... (IPFS and EVM error specifically)
+* Error Handling... (IPFS and EVM error specifically). Right now there isn't any error handling whatsoever.
 * Pin messages and public-key using Pinata.
 * Deploy to test net.
 * (Maybe) Implement a version where the public keys are stored on the blockchain and compare gas prices.

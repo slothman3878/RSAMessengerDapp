@@ -1,0 +1,6 @@
+<h1>Inbox</h1>
+<ul>
+{% for message in messages %}
+    <li><a href={% url 'inbox-message' id=forloop.counter0 %}>from: {{message}}</li>
+{% endfor %}
+</ul>

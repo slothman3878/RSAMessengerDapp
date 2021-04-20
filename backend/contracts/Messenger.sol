@@ -8,18 +8,20 @@ contract Messenger{
   //Having to store the from and to addresses for each message may be needlessly costly.
   //Information about who sent and recieved the message can be appended to the message itself.
   //Also better privacy if the sender and recipient of some message is unknown
+  //Edit: Cannot possibly implement an inbox without the relevent from and to information publically visible
   struct Message{
     //Declare if Message is type public or private? Private messsages require decryption, whereas public ones don't.
     address from;
     address to;
     string message;
+    uint256 signed; // date signed
   }
 
   string private _name = "EthMessenger";
 
   uint256 private _messageIndex;
 
-  mapping(uint256 => string) private _messages;
+  mapping(uint256 => Message) private _messages;
 
   mapping(address => uint256) private _recievedBalance; //total recieved for each address
   mapping(address => uint256) private _sentBalance;     //total sent for each address
@@ -44,8 +46,8 @@ contract Messenger{
   function sendMessage(address from, address to, string memory URI) public virtual {
     require(from == msg.sender, "Messenger: Message not being sent by transaction sender");
     require(_exists[to], "Messenger: Trying to send message to nonexistent user");
-    //Message memory message = Message(from, to, URI);
-    string memory message = URI;
+    Message memory message = Message(from, to, URI, block.timestamp);
+    //string memory message = URI;
 
     _messageIndex++;
     _messages[_messageIndex]=message;
@@ -64,7 +66,7 @@ contract Messenger{
     return _keys[to];
   }
 
-  function getMessage(uint256 id) public virtual view returns (string memory) {
+  function getMessage(uint256 id) public virtual view returns (Message memory) {
     //require(_messages[id].from!=address(0),"Messenger: Requesting nonexistent message");
     return _messages[id];
   }

@@ -1,12 +1,10 @@
 <h1>Message</h1>
-<form method='post'> {% csrf_token %}
-    <p>
-        from: {{from}}
-        <br>
-        to: {{from}}
-        <br>
-        {{title}}
-        <br>
-        {{body}}
-    </p>
-</form>
+<p>
+    from: {{from}}
+    <br>
+    to: {{from}}
+    <br>
+    title: {{title}}
+    <br>
+    {{body|safe}}
+</p>

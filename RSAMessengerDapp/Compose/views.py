@@ -3,13 +3,11 @@ from django.shortcuts import render, redirect
 
 import os, json
 from datetime import datetime
-from Crypto.PublicKey import RSA
-from Crypto.Random import get_random_bytes
-from Crypto.Cipher import AES, PKCS1_OAEP
 from hashlib import sha256
 
 from Scripts.Web3Wrapper import sendMessage, getPublicKey
 from Scripts.IpfsWrapper import add, cat
+from Scripts.CryptoWrapper import encrypt
 
 from .forms import MessageComposeForm
 
@@ -28,28 +26,16 @@ def compose_view(request):
                 'title': title,
                 'body' : body,
             }
-            data = json.dumps(full_message, indent=4).encode('utf-8')
 
             file_title = sha256((title + request.user.username + datetime.now().strftime('%s')).encode()).hexdigest()
             file_loc = 'temp/'+file_title+'.bin'
-            file_out = open(file_loc, 'wb')
 
-            recipient_key = RSA.import_key(cat(getPublicKey(recipient)))
-            session_key = get_random_bytes(16)
-
-            cipher_rsa = PKCS1_OAEP.new(recipient_key)
-            enc_session_key = cipher_rsa.encrypt(session_key)
-
-            cipher_aes = AES.new(session_key, AES.MODE_EAX)
-            ciphertext, tag = cipher_aes.encrypt_and_digest(data)
-
-            [file_out.write(x) for x in (enc_session_key, cipher_aes.nonce, tag, ciphertext)]       
-            file_out.close()
+            encrypt(full_message, cat(getPublicKey(recipient)), file_loc)
 
             msgHash = add(file_loc)
-            sendMessage(request.user.address, recipient, msgHash, request.user.eth_key)
-
             os.remove(file_loc)
+
+            sendMessage(request.user.address, recipient, msgHash, request.user.eth_key)
             
             return redirect('home')
         else:

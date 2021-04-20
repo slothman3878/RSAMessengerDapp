@@ -1,15 +1,13 @@
 import json
 from web3 import Web3
 
-import Scripts.IpfsWrapper
-
 #Provider Instance
 #Currently deployed to local hardhat network only
 #Wrap the whole thing in a class, initialzied with the user address, private_key, and gas price of choice
 
 provider = Web3.HTTPProvider('http://127.0.0.1:8545/')
 web3 = Web3(provider)
-contract_address = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
+contract_address = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
 contract_artifact = json.load(open('Messenger.json',))
 abi = contract_artifact['abi']
 contract_instance = web3.eth.contract(address=contract_address,abi=abi)

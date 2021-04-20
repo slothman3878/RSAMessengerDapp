@@ -19,10 +19,10 @@
   The message itself is a `.json` with the following format:
   ```
     {
-        'from' : ... ,
-        'to'   : ... ,
-        'title': ... ,
-        'body' : ...
+        'from' : //Sender Address ,
+        'to'   : //Recipient Address ,
+        'title': //Title of Message ,
+        'body' : //Message Body
     }
   ```
 

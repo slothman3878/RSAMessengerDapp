@@ -1,3 +1,5 @@
+const { exec } = require('shelljs');
+
 async function main() {
   const contractName = 'Messenger';
 
@@ -17,6 +19,7 @@ async function main() {
 }
 
 main()
+  .then(() => exec('yes | cp artifacts/contracts/Messenger.sol/Messenger.json ../RSAMessengerDapp/'))
   .then(() => process.exit(0))
   .catch(error => {
     console.error(error);

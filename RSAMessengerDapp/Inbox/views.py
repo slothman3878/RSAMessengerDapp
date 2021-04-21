@@ -38,6 +38,12 @@ def inbox_message_api(request, id):
         key = Key.objects.filter(is_main_key=True,user=request.user)
         data = decrypt(key[0].private_key, 'hello world', encrypted_msg)
         data_dict = json.loads(data)
-        return JsonResponse({ 'from': message[0], 'to': message[1], 'title': data_dict['title'], 'body': data_dict['body'] })
+        return JsonResponse({
+            'from': message[0],
+            'to': message[1],
+            'title': data_dict['title'],
+            'body': data_dict['body'],
+            'signed': message[3],
+        })
     except Exception as ex:
         return JsonResponse({ 'error': ex })

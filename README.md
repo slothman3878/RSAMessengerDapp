@@ -25,6 +25,8 @@
         'body' : //Message Body
     }
   ```
+  
+  This version uses web3.py. An ethereum address is generated for each user (which unfortunately means that the private keys are stored on the database).
 
 ## Important!!!
   The frontend is merely for demonstration. It should not be used seriously. It is in fact, a terrible frontend since it stores not only the private RSA keys for its users, it also stores&ndash;although immediately deletes after creation&ndash;private messages, encrypted or no. Then there's the fact that it handles and stores the addresses and private-keys of its users in the database.

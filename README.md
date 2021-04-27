@@ -28,3 +28,5 @@
 
 ## Important!!!
   The frontend is merely for demonstration. It should not be used seriously. It is in fact, a terrible frontend since it stores not only the private RSA keys for its users, it also stores&ndash;although immediately deletes after creation&ndash;private messages, encrypted or no. Then there's the fact that it handles and stores the addresses and private-keys of its users in the database.
+  
+  This project has been put on hold. I intend to rework this using `ethers.js` and something like `walletconnect` instead. `web3.py` requires the use of "burner" ethereum accounts instead of using the user's pre-existing wallets which users would obviously prefer using. The ability to sign transactions should be given to the users.
